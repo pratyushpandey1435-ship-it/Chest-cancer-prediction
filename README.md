@@ -152,4 +152,3 @@ Please read CONTRIBUTING.md for details on our code of conduct and the process f
 - Dataset sources
    - https://www.cardiacatlas.org/sunnybrook-cardiac-data/
    - https://www.kaggle.com/datasets/andrewmvd/heart-failure-clinical-data# Heart_Disease_Prediction
-# Heart_Disease_Prediction

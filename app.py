@@ -16,7 +16,7 @@ def load_models():
     return rf_model, cnn_model
 
 def main():
-    st.title("Heart Failure Prediction System")
+    st.title("Chest Cancer Prediction Application")
     
     # Load models
     rf_model, cnn_model = load_models()
@@ -108,10 +108,10 @@ def main():
                 with col1:
                     st.metric("Normal Probability", f"{prediction[0]:.2%}")
                 with col2:
-                    st.metric("Heart Failure Probability", f"{prediction[1]:.2%}")
+                    st.metric("Chest Cancer Probability", f"{prediction[1]:.2%}")
                 
                 # Display prediction class
-                predicted_class = "Heart Failure Detected" if prediction[1] > 0.5 else "Normal"
+                predicted_class = "Chest Cancer Detected" if prediction[1] > 0.5 else "Normal"
                 confidence = max(prediction[0], prediction[1])
                 st.info(f"Prediction: {predicted_class} (Confidence: {confidence:.2%})")
                 
