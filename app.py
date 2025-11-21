@@ -72,7 +72,7 @@ def main():
             with col1:
                 st.metric("Survival Probability", f"{(1 - prediction[1]):.2%}")
             with col2:
-                st.metric("Heart Failure Risk", f"{prediction[1]:.2%}")
+                st.metric("Chest Cancer  Risk", f"{prediction[1]:.2%}")
             
             # Display risk level
             risk_level = "High" if prediction[1] > 0.7 else "Moderate" if prediction[1] > 0.3 else "Low"
