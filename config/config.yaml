@@ -1,0 +1,21 @@
+artifacts_root: artifacts
+
+# format of ymal files
+data_ingestion: # key
+  # naive values
+  root_dir : artifacts/data_ingestion # make artifacts folder where we need store the dataset
+  source_url : https://drive.google.com/file/d/1eJyF0daLaHgnWmT0ydhNDqykm97saYWi/view?usp=sharing  # google drive url
+  local_data_file: artifacts/data_ingestion/data.zip  #downloading....
+  unzip_dir : artifacts/data_ingestion 
+
+prepare_base_model:
+  root_dir : artifacts/prepare_base_model # make artifacts folder where we need store the models prepared
+  # downloading base models(pre-trained models)
+  base_model_path: artifacts/prepare_base_model/base_model.h5  # h5 is used for saving tensorflow or keras models
+  # updating the base model
+  updated_base_model_path : artifacts/prepare_base_model/base_model_updated.h5
+  
+
+training:
+  root_dir : artifacts/training
+  trained_model_path : artifacts/training/model.h5
