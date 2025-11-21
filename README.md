@@ -1,182 +1,155 @@
-🚀 End-to-End Chest Cancer Detection using MLOps & DVC
+# Heart Failure Prediction System
 
-🌟 An AI-powered solution for early chest cancer detection using Deep Learning and MLOps.
+## Overview
+This project implements a dual-model approach for heart failure prediction using both clinical data and MRI images. The system combines a Random Forest model for analyzing clinical parameters and a Convolutional Neural Network (CNN) for processing medical imaging data, providing medical professionals with comprehensive diagnostic support.
 
-📌 Integrated with DVC for dataset versioning & automated CI/CD workflows.
+![heartimage](https://www.gettyimages.com/photos/heart-failure)
 
-🔬 Deployed via Streamlit & FastAPI for real-time predictions.
+[Visit Deployed App](http://localhost:8502/)
 
-Dataset : https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images
+## Features
+- **Dual Prediction Methods**:
+  - Clinical data analysis using Random Forest
+  - MRI image analysis using CNN
+- **Interactive Web Interface**:
+  - User-friendly Streamlit application
+  - Real-time predictions
 
-🏥 Project Overview
-Chest cancer detection from medical images is a crucial application of AI in healthcare. This project follows a complete Machine Learning (ML) Lifecycle using MLOps principles and Data Version Control (DVC) to ensure:
+## Project Structure
+```
+heart_failure_pred/
+├── artifacts/
+│   ├── data/
+│   │   ├── img_data/
+│   │   │   ├── normal/
+│   │   │   └── failure/
+│   │   └── tabular_data/
+│   │       └── heart_failure.csv
+│   └── models/
+│       ├── cnn/
+│       │   ├── cnn_model.keras
+│       │   └── cnn_score.json
+│       └── rf/
+│           ├── rf_model.pkl
+│           └── rf_score.json
+├── main.py
+├── utils.py
+├── app.py
+├── requirements.txt
+└── README.md
+```
 
-✅ Scalability - Efficient dataset management with DVC.
+## Installation
 
-✅ Reproducibility - Automated pipelines for training & deployment.
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
 
-✅ Automation - Continuous Integration (CI) & Deployment (CD) via GitHub Actions.
+### Setup
+1. Clone the repository:
+```bash
+git clone https://github.com/AryanDhanuka10/Heart-Failure-Prediction.git
+cd heart_failure_pred
+```
 
-✅ Real-Time Predictions - Deployable via Streamlit & FastAPI web apps.
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
 
-
-🖥 Live Demo: Chest Cancer Detection App
-
-📂 Project Structure
-bash
-Copy
-Edit
-📦 end-to-end-ml_project-chest-cancer-detection-using-mlops-and-dvc
-
-│-- .dvc/               # DVC configuration for dataset & model versioning
-
-│-- .github/workflows/   # CI/CD automation with GitHub Actions
-
-│-- config/             # Configuration files for training & inference
-
-│-- research/           # Jupyter notebooks for exploratory data analysis
-
-│-- src/cnnClassifier/  # CNN architecture & ML pipeline scripts
-
-│-- templates/          # HTML templates for the web app interface
-
-│-- app.py              # Flask-based web API
-
-│-- streamlit_app.py    # Streamlit app for user-friendly predictions
-
-│-- FastAPI_app.py      # FastAPI backend for RESTful predictions
-
-│-- requirements.txt    # Dependencies for setting up the project
-
-🛠️ Installation & Setup
-1️⃣ Clone the Repository
-
-bash
-
-Copy
-
-Edit
-
-git clone https://github.com/aimlproject083-rgb/End_to_End_Chest_Cancer_Detection_ML_Project_using_DVC_and_MLflow.git
-
-cd end-to-end-ml_project-chest-cancer-detection-using-mlops-and-dvc
-
-2️⃣ Create a Virtual Environment
-bash
-Copy
-Edit
-python3 -m venv chest
-source chest/bin/activate  # For Windows use: chest\Scripts\activate
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
+3. Install required packages:
+```bash
 pip install -r requirements.txt
-4️⃣ Install DVC & Fetch Data
-bash
-Copy
-Edit
-pip install dvc
-dvc pull  # Pull dataset & model files
-🎯 Model Training & Evaluation
-🔵 Configure Training Parameters
-Modify the config/config.yaml file with the dataset path and hyperparameters.
+```
 
-🔵 Start Training
-bash
-Copy
-Edit
-python src/cnnClassifier/train.py
-The model will be trained and saved for deployment.
+## Model Training
 
-🔵 Evaluate Performance
-bash
-Copy
-Edit
-python src/cnnClassifier/evaluate.py
-This will generate accuracy, loss curves, and confusion matrices.
+### Train Models
+To train both the Random Forest and CNN models:
+```bash
+python main.py
+```
 
-🚀 Deployment Options
-🟢 1. Streamlit Web App
-Run the Streamlit app for an interactive user interface:
+This script will:
+- Load and preprocess the data
+- Train the Random Forest model with hyperparameter tuning
+- Train the CNN model
+- Save the trained models and their performance metrics
 
-bash
-Copy
-Edit
-streamlit run streamlit_app.py
-📌 Features:
-✔ Upload X-ray images
-✔ Get real-time predictions
-✔ Confidence score displayed
+## Using the Web Interface
 
-🖥 Live Demo: [Chest Cancer Detection App](https://endtoendchestcancerdetectionaimlproject-6gcnrho.streamlit.app/)
+### Start the Application
+```bash
+streamlit run app.py
+```
 
-🔵 2. FastAPI REST API
-Run the FastAPI-based backend for model inference:
+### Making Predictions
 
-bash
-Copy
-Edit
-uvicorn FastAPI_app:app --reload
-📌 Access API Docs: http://127.0.0.1:8000/docs
-✔ Upload images as JSON payload
-✔ Get predictions via RESTful API
+#### Clinical Data Prediction
+1. Navigate to the "Clinical Data Prediction" tab
+2. Enter the required clinical parameters:
+   - Age
+   - Anaemia status
+   - Creatinine phosphokinase level
+   - Diabetes status
+   - Ejection fraction
+   - High blood pressure status
+   - Platelets count
+   - Serum creatinine level
+   - Serum sodium level
+   - Sex
+   - Smoking status
+   - Follow-up period
+3. Click "Predict" to get results
 
-🔥 MLOps & DVC Integration
-🚀 MLOps Workflows:
+#### MRI Image Prediction
+1. Navigate to the "MRI Image Prediction" tab
+2. Upload a DICOM format MRI image
+3. View the prediction results
 
-✅ GitHub Actions: Automates testing, training, and deployment.
+## Technical Details
 
-✅ DVC (Data Version Control): Keeps track of datasets & models.
+### Data Format Requirements
 
-✅ Pipeline Orchestration: Ensures smooth training-to-deployment transition.
+#### Clinical Data
+- All numerical inputs should be non-negative
+- Binary inputs (anaemia, diabetes, high blood pressure, sex, smoking) use 0/1 encoding
+- Input ranges:
+  - Age: 0-100 years
+  - Ejection Fraction: 0-100%
+  - Platelets: typical range 150,000-450,000 per μL
+  - Time: measured in days
 
-💡 Why DVC?
+#### Image Data
+- Format: DICOM (.dcm)
+- Processed to 224x224 pixels
+- Normalized to [0,1] range
 
-Reproducibility: Always use the correct dataset version.
+### Models
 
-Collaboration: Work seamlessly across multiple systems.
+#### Random Forest Model
+- Features: 12 clinical parameters
+- Hyperparameter tuning via GridSearchCV
+- Optimization metric: Accuracy
+- Output: Binary classification with probability scores
 
-Efficiency: Fetch only required data, saving storage & bandwidth.
+#### CNN Model
+- Architecture: Sequential model with multiple convolutional layers
+- Input shape: (224, 224, 1)
+- Training: Adam optimizer with sparse categorical crossentropy
+- Output: Binary classification (normal/failure)
 
-bash
-Copy
-Edit
-# Track dataset
-dvc add data/dataset
-git commit -m "Tracked dataset using DVC"
-git push origin main
+## Performance Metrics
+The system saves performance metrics for both models:
+- For Random Forest: accuracy, F1 score, and detailed classification report
+- For CNN: loss and accuracy metrics
 
-# Pull dataset in a new environment
-dvc pull
-💡 Results & Performance
-📌 The model has been trained on chest X-ray images to classify:
+## Contributing
+Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
 
-Normal
-
-Adenocarcinoma (Left Lower Lobe - Stage Ib)
-
-Large Cell Carcinoma (Left Hilum - Stage IIIa)
-
-Squamous Cell Carcinoma (Left Hilum - Stage IIIa)
-
-
-🤝 Contributing
-💡 Contributions, issues, and feature requests are welcome!
-Feel free to check the issues page.
-
-📜 License
-This project is licensed under the MIT License.
-
-📬 Contact
-
-📌 Author: Aryan Dhanuka , Aryan Upadhayay and Kushal Bansal
-
-
-
-
-
-
-
-
-
+## Acknowledgments
+- Dataset sources
+   - https://www.cardiacatlas.org/sunnybrook-cardiac-data/
+   - https://www.kaggle.com/datasets/andrewmvd/heart-failure-clinical-data# Heart_Disease_Prediction
+# Heart_Disease_Prediction
