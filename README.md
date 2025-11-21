@@ -5,7 +5,7 @@ This project implements a dual-model approach for heart failure prediction using
 
 ![heartimage](https://www.gettyimages.com/photos/heart-failure)
 
-[Visit Deployed App](http://localhost:8502/)
+[Visit Deployed App](https://chest-cancer-prediction-pratyushpandey.streamlit.app/)
 
 ## Features
 - **Dual Prediction Methods**:
