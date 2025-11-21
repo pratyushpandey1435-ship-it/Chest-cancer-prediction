@@ -1,0 +1,10 @@
+Flask
+scikit-learn
+streamlit
+numpy
+pandas
+matplotlib
+tensorflow
+pydicom
+black
+isort
