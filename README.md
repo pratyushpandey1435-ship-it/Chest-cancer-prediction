@@ -1,4 +1,4 @@
-# Heart Failure Prediction System
+# Chest Cancer Prediction
 
 ## Overview
 This project implements a dual-model approach for heart failure prediction using both clinical data and MRI images. The system combines a Random Forest model for analyzing clinical parameters and a Convolutional Neural Network (CNN) for processing medical imaging data, providing medical professionals with comprehensive diagnostic support.
@@ -48,7 +48,7 @@ heart_failure_pred/
 ### Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/AryanDhanuka10/Heart-Failure-Prediction.git
+git clone https://github.com/pratyushpandey1435-ship-it/Chest-cancer-prediction
 cd heart_failure_pred
 ```
 
