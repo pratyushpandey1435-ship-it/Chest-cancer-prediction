@@ -3,7 +3,7 @@
 ## Overview
 This project implements a dual-model approach for heart failure prediction using both clinical data and MRI images. The system combines a Random Forest model for analyzing clinical parameters and a Convolutional Neural Network (CNN) for processing medical imaging data, providing medical professionals with comprehensive diagnostic support.
 
-[image](https://www.gettyimages.com/photos/heart-failure)
+![heartimage](https://media.gettyimages.com/id/1320270583/photo/close-up-of-man-is-heart-attack.jpg?s=2048x2048&w=gi&k=20&c=qM8XA9gSBeqvJXqB0hXbP06XwoYApHJoEw_lDt-1LjQ=)
 
 [Visit Deployed App](https://chest-cancer-prediction-pratyush.streamlit.app/)
 
